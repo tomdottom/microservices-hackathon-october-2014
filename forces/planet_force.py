@@ -8,6 +8,9 @@ G=6.67384e-11
 
 # Law of gravity
 def gravity_force(m1, m2, dist):
+   if dist < 1.0:
+      dist = 1.0
+   print "%s %s %s" %(m1, m2, dist)
    return G*m1*m2/math.pow(dist, 2)
 
 
@@ -16,6 +19,8 @@ def planet_vector(me_p, other_p):
    p_dist=math.sqrt(pow(me_p[0]-other_p[0], 2)+pow(me_p[1]-other_p[1], 2))
    # print p_dist
    g_force=gravity_force(me_p[2], other_p[2], p_dist)
+   if not g_force:
+      g_force = 0.00000001
    xy=float(abs(other_p[0]-me_p[0])+abs(other_p[1]-me_p[1]))
    x_vect=((other_p[0]-me_p[0])/xy)*g_force
    y_vect=((other_p[1]-me_p[1])/xy)*g_force
