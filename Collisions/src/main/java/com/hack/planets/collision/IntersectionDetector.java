@@ -8,14 +8,16 @@ import static java.lang.Math.sqrt;
  */
 public class IntersectionDetector {
 
-    private Position intersection;
+   // private Position intersection;
 
-    public Position getIntersection()
+    public Position getIntersection(Movement movementA, Movement movementB)
     {
-        return intersection;
+        Point intersection = calcIntersection(movementA, movementB);
+        return new Position(intersection.x, intersection.y);
     }
 
-    public boolean isCollision(Movement movementA, Movement movementB) {
+    private Point calcIntersection(Movement movementA, Movement movementB)
+    {
         Position aStart = movementA.getStart();
         Position aEnd = movementA.getEnd();
         Position bStart = movementB.getStart();
@@ -25,17 +27,11 @@ public class IntersectionDetector {
         Point p3 = new Point(bStart.getX(), bStart.getY());
         Point p4 = new Point(bEnd.getX(), bEnd.getY());
 
-        Point intersection = findIntersection(p1, p2, p3, p4);
+        return findIntersection(p1, p2, p3, p4);
+    }
 
-        if (Float.isNaN(intersection.x))
-        {
-            return false;
-        }
-        else
-        {
-            this.intersection= new Position(intersection.x, intersection.y);;
-            return true;
-        }
+    public boolean isCollision(Movement movementA, Movement movementB) {
+        return !Float.isNaN(calcIntersection(movementA, movementB).x);
     }
 
     // calculates intersection and checks for parallel lines.

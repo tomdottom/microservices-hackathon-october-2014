@@ -29,7 +29,7 @@ public class IntersectionDetectorTest {
     public void detect_collision_for_overlapping_paths()
     {
         assertTrue(intersectionDetector.isCollision(new Movement(new Position(0, 0), new Position(1, 1)), new Movement(new Position(1, 0), new Position(0, 1))));
-        Position intersection = intersectionDetector.getIntersection();
+        Position intersection = intersectionDetector.getIntersection(new Movement(new Position(0, 0), new Position(1, 1)), new Movement(new Position(1, 0), new Position(0, 1)));
                 System.out.println(intersection);
     }
 
