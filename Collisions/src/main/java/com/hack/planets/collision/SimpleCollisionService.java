@@ -28,14 +28,15 @@ public class SimpleCollisionService implements CollisionService {
     }
 
     @Override
-    public void bodyMoved(String bodyName, Position initialPosition) {
-
-
+    public void bodyMoved(String bodyName, Position actualPosition) {
+        Movement previous = previousMovements.get(bodyName);
+        Movement current = new Movement(previous.getEnd(), actualPosition);
+        previousMovements.put(bodyName, current);
     }
 
     @Override
     public void bodyDestroyed(String bodyName) {
-
+        previousMovements.remove(bodyName);
     }
 
     @Override
