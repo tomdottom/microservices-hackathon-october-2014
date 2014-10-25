@@ -3,17 +3,21 @@
 
 import math
 
+# Newtons' universal gravitational constant
 G=6.67384e-11
 
+# Law of gravity
 def gravity_force(m1, m2, dist):
    return G*m1*m2/math.pow(dist, 2)
 
 
 def planet_vector(me_p, other_p):
    p_dist=math.sqrt(pow(me_p[0]-other_p[0], 2)+pow(me_p[1]-other_p[1], 2))
+   # print p_dist
    g_force=gravity_force(me_p[2], other_p[2], p_dist)
-   x_vect=(other_p[0]-me_p[0])*g_force
-   y_vect=(other_p[1]-me_p[1])*g_force
+   xy=abs(other_p[0]-me_p[0])+abs(other_p[1]-me_p[1])
+   x_vect=((other_p[0]-me_p[0])/xy)*g_force
+   y_vect=((other_p[1]-me_p[1])/xy)*g_force
    return [x_vect, y_vect]
 
 
@@ -25,7 +29,7 @@ def all_forces(the_universe, planet_back, universe_back):
             a_vector=planet_vector(my_planet, other_planet)
             my_vector[0]+=a_vector[0]
             my_vector[1]+=a_vector[1]
-      planet_back(my_vector)
+      planet_back([my_vector[0], my_vector[1], my_planet[3]])
    universe_back()
    return
 
@@ -36,7 +40,7 @@ def print_planet(f_vect):
    print f_vect
 
 def test_data():
-   return [[1, 1, 10], [2, 3, 20]]
+   return [[1, 1, 10, "a"], [2, 3, 20, "b"], [3, 1, 4, "c"]]
 
 if __name__ == "__main__":
    uni=test_data()
