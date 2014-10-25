@@ -1,5 +1,7 @@
 package com.hack.planets.collision;
 
+import org.slf4j.LoggerFactory;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -24,11 +26,13 @@ public class SimpleCollisionService implements CollisionService {
 
     @Override
     public void bodyCreated(String bodyName, Position initialPosition) {
+        LoggerFactory.getLogger(SimpleCollisionService.class).info("Body "+bodyName+" created at: "+initialPosition);
         previousMovements.put(bodyName, new Movement(initialPosition, initialPosition));
     }
 
     @Override
     public void bodyMoved(String bodyName, Position actualPosition) {
+        LoggerFactory.getLogger(SimpleCollisionService.class).info("Body "+bodyName+" moved to: "+actualPosition);
         Movement previous = previousMovements.get(bodyName);
         Movement current = new Movement(previous.getEnd(), actualPosition);
         previousMovements.put(bodyName, current);
@@ -36,11 +40,14 @@ public class SimpleCollisionService implements CollisionService {
 
     @Override
     public void bodyDestroyed(String bodyName) {
+        LoggerFactory.getLogger(SimpleCollisionService.class).info("Body "+bodyName+" destroyed");
         previousMovements.remove(bodyName);
     }
 
     @Override
     public List<Collision> calculateCollisions() {
+        LoggerFactory.getLogger(SimpleCollisionService.class).info("Computing collisions");
+
         List<Collision> collisions = new LinkedList<>();
         Set<String> bodies = previousMovements.keySet();
 
