@@ -19,3 +19,26 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test:1.1.6.RELEASE")
     testCompile("org.springframework.boot:spring-boot-starter-web:1.1.6.RELEASE")
 }
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/vermeulen-mp/gradle-plugins' }
+    }
+    dependencies {
+        classpath "com.wiredforcode:gradle-heroku-plugin:1.0.0"
+    }
+}
+apply plugin: 'heroku'
+
+heroku {
+    //get this from heroku
+    apiKey = 'REPLACE_ME_WITH_AN_API_KEY'
+
+    //set this on first run if you don't want a generated name
+    appName = 'bodycreator'
+}
+
+jar {
+    dependsOn configurations.runtime
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
