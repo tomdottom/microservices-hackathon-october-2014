@@ -8,24 +8,17 @@ import java.util.Objects;
 public final class Collision {
     private final String body1;
     private final String body2;
+    private final Position position;
 
-    public Collision(String body1, String body2) {
+    public Collision(String body1, String body2, Position position) {
         this.body1 = body1;
         this.body2 = body2;
+        this.position = position;
     }
-
-    public String getBody1() {
-        return body1;
-    }
-
-    public String getBody2() {
-        return body2;
-    }
-
 
     @Override
     public int hashCode() {
-        return Objects.hash(body1, body2);
+        return Objects.hash(body1, body2, position);
     }
 
     @Override
@@ -37,7 +30,7 @@ public final class Collision {
             return false;
         }
         final Collision other = (Collision) obj;
-        return Objects.equals(this.body1, other.body1) && Objects.equals(this.body2, other.body2);
+        return Objects.equals(this.body1, other.body1) && Objects.equals(this.body2, other.body2) && Objects.equals(this.position, other.position);
     }
 
     @Override
@@ -45,6 +38,7 @@ public final class Collision {
         return "Collision{" +
                 "body1='" + body1 + '\'' +
                 ", body2='" + body2 + '\'' +
+                ", position=" + position +
                 '}';
     }
 }
