@@ -16,6 +16,18 @@ public final class Collision {
         this.position = position;
     }
 
+    public String getBody1() {
+        return body1;
+    }
+
+    public String getBody2() {
+        return body2;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(body1, body2, position);

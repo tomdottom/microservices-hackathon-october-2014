@@ -73,6 +73,10 @@ public class SimpleCollisionService implements CollisionService {
     //~~~~ Utils
 
     private boolean notPreviouslyDetected(List<Collision> collisions, String bodyA, String bodyB) {
+        collisions.forEach((Collision collision) -> {
+        });
+
+
         return !collisions.contains(new Collision(bodyB, bodyA, new Position(0, 0)));
     }
 
