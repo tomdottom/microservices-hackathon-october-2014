@@ -15,9 +15,10 @@ def planet_vector(me_p, other_p):
    p_dist=math.sqrt(pow(me_p[0]-other_p[0], 2)+pow(me_p[1]-other_p[1], 2))
    # print p_dist
    g_force=gravity_force(me_p[2], other_p[2], p_dist)
-   xy=abs(other_p[0]-me_p[0])+abs(other_p[1]-me_p[1])
+   xy=float(abs(other_p[0]-me_p[0])+abs(other_p[1]-me_p[1]))
    x_vect=((other_p[0]-me_p[0])/xy)*g_force
    y_vect=((other_p[1]-me_p[1])/xy)*g_force
+   # print p_dist, " ", xy, " ", g_force, [x_vect, y_vect]
    return [x_vect, y_vect]
 
 
