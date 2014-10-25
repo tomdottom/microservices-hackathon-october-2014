@@ -159,3 +159,5 @@ $RECYCLE.BIN/
 *.iml
 target
 
+# Compiled python files
+*.pyc
