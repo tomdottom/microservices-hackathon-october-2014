@@ -12,7 +12,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.QueueingConsumer;
 
 public class Client {
-	private static final long TIMEOUT = 100L;
+	private static final long TIMEOUT = 100;
 	
 	private ConnectionFactory factory;
 

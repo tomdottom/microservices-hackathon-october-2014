@@ -33,9 +33,13 @@ public class SimpleCollisionService implements CollisionService {
     @Override
     public void bodyMoved(String bodyName, Position actualPosition) {
         LoggerFactory.getLogger(SimpleCollisionService.class).info("Body "+bodyName+" moved to: "+actualPosition);
-        Movement previous = previousMovements.get(bodyName);
-        Movement current = new Movement(previous.getEnd(), actualPosition);
-        previousMovements.put(bodyName, current);
+        if (previousMovements.containsKey(bodyName)) {
+            Movement previous = previousMovements.get(bodyName);
+            Movement current = new Movement(previous.getEnd(), actualPosition);
+            previousMovements.put(bodyName, current);
+        } else {
+            bodyCreated(bodyName, actualPosition);
+        }
     }
 
     @Override
