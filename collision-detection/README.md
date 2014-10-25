@@ -1,4 +1,0 @@
-collision detection
-====================================
-
-The service.
