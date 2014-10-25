@@ -1,9 +1,11 @@
 package com.hack.planets.collision;
 
+import java.util.Objects;
+
 /**
  * Created by julianghionoiu on 25/10/2014.
  */
-public class Collision {
+public final class Collision {
     private final String body1;
     private final String body2;
 
@@ -22,23 +24,20 @@ public class Collision {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Collision collision = (Collision) o;
-
-        if (!body1.equals(collision.body1)) return false;
-        if (!body2.equals(collision.body2)) return false;
-
-        return true;
+    public int hashCode() {
+        return Objects.hash(body1, body2);
     }
 
     @Override
-    public int hashCode() {
-        int result = body1.hashCode();
-        result = 31 * result + body2.hashCode();
-        return result;
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Collision other = (Collision) obj;
+        return Objects.equals(this.body1, other.body1) && Objects.equals(this.body2, other.body2);
     }
 
     @Override

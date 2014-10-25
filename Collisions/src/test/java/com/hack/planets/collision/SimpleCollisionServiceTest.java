@@ -37,9 +37,9 @@ public class SimpleCollisionServiceTest {
         instance.bodyMoved(BODY_TWO, new Position(1,1));
 
         List<?> collisions =instance.calculateCollisions();
-        System.out.println(collisions);
 
         assertThat(collisions.size(), is(1));
+        assertThat(collisions.get(0), is(new Collision(BODY_ONE, BODY_TWO)));
     }
 
     @Test
