@@ -1,0 +1,211 @@
+[
+    {
+        "id": -1,
+        "name": "Celestial Body Muncher",
+        "radius": 0.1,
+        "mass": 100e30,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 0,
+            "G": 0,
+            "B": 0
+        },
+        "location": {
+            "x": -5870000000,
+            "y": 0
+        }
+    },
+    {
+        "id": 0,
+        "name": "Sun",
+        "radius": 695202,
+        "mass": 1989000e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 255,
+            "G": 255,
+            "B": 0
+        },
+        "location": {
+            "x": 0,
+            "y": 0
+        }
+    },
+    {
+        "id": 1,
+        "name": "Mercury",
+        "radius": 2439.5,
+        "mass": 0.330e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 0,
+            "G": 0,
+            "B": 205
+        },
+        "location": {
+            "x": 57900000,
+            "y": 0
+        }
+    },
+    {
+        "id": 2,
+        "name": "Venus",
+        "radius": 6052,
+        "mass": 4.87e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 0,
+            "G": 0,
+            "B": 205
+        },
+        "location": {
+            "x": 108200000,
+            "y": 0
+        }
+    },
+    {
+        "id": 3,
+        "name": "Earth",
+        "radius": 6378,
+        "mass": 5.97e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 0,
+            "G": 0,
+            "B": 205
+        },
+        "location": {
+            "x": 149600000,
+            "y": 0
+        }
+    },
+    {
+        "id": 4,
+        "name": "Mars",
+        "radius": 3396,
+        "mass": 0.642e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 255,
+            "G": 0,
+            "B": 0
+        },
+        "location": {
+            "x": 227900000,
+            "y": 0
+        }
+    },
+    {
+        "id": 5,
+        "name": "Jupiter",
+        "radius": 71492,
+        "mass": 1898e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 120,
+            "G": 120,
+            "B": 120
+        },
+        "location": {
+            "x": 778600000,
+            "y": 0
+        }
+    },
+    {
+        "id": 6,
+        "name": "Saturn",
+        "radius": 60268,
+        "mass": 568e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 120,
+            "G": 120,
+            "B": 120
+        },
+        "location": {
+            "x": 1433500000,
+            "y": 0
+        }
+    },
+    {
+        "id": 7,
+        "name": "Uranus",
+        "radius": 25559,
+        "mass": 86.8e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 120,
+            "G": 120,
+            "B": 120
+        },
+        "location": {
+            "x": 2872500000,
+            "y": 0
+        }
+    },
+    {
+        "id": 8,
+        "name": "Neptune",
+        "radius": 24764,
+        "mass": 102e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 120,
+            "G": 120,
+            "B": 120
+        },
+        "location": {
+            "x": 4495100000,
+            "y": 0
+        }
+    },
+    {
+        "id": 9,
+        "name": "Pluto",
+        "radius": 1195,
+        "mass": 0.0131e24,
+        "vector": {
+            "x": 0,
+            "y": 0
+        },
+        "colour": {
+            "R": 120,
+            "G": 120,
+            "B": 120
+        },
+        "location": {
+            "x": 5870000000,
+            "y": 0
+        }
+    }
+]
