@@ -1,15 +1,19 @@
 package com.hack.planets.collision;
 
+import java.util.Objects;
+
 /**
  * Created by julianghionoiu on 25/10/2014.
  */
-public class Collision {
+public final class Collision {
     private final String body1;
     private final String body2;
+    private final Position position;
 
-    public Collision(String body1, String body2) {
+    public Collision(String body1, String body2, Position position) {
         this.body1 = body1;
         this.body2 = body2;
+        this.position = position;
     }
 
     public String getBody1() {
@@ -20,25 +24,25 @@ public class Collision {
         return body2;
     }
 
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Collision collision = (Collision) o;
-
-        if (!body1.equals(collision.body1)) return false;
-        if (!body2.equals(collision.body2)) return false;
-
-        return true;
+    public Position getPosition() {
+        return position;
     }
 
     @Override
     public int hashCode() {
-        int result = body1.hashCode();
-        result = 31 * result + body2.hashCode();
-        return result;
+        return Objects.hash(body1, body2, position);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Collision other = (Collision) obj;
+        return Objects.equals(this.body1, other.body1) && Objects.equals(this.body2, other.body2) && Objects.equals(this.position, other.position);
     }
 
     @Override
@@ -46,6 +50,7 @@ public class Collision {
         return "Collision{" +
                 "body1='" + body1 + '\'' +
                 ", body2='" + body2 + '\'' +
+                ", position=" + position +
                 '}';
     }
 }
