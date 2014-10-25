@@ -1,0 +1,44 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter:1.1.6.RELEASE")
+    compile 'com.rabbitmq:amqp-client:2.6.1'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.google.guava:guava:18.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile("org.springframework.boot:spring-boot-starter-test:1.1.6.RELEASE")
+    testCompile("org.springframework.boot:spring-boot-starter-web:1.1.6.RELEASE")
+}
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/vermeulen-mp/gradle-plugins' }
+    }
+    dependencies {
+        classpath "com.wiredforcode:gradle-heroku-plugin:1.0.0"
+    }
+}
+apply plugin: 'heroku'
+
+heroku {
+    //get this from heroku
+    apiKey = 'REPLACE_ME_WITH_AN_API_KEY'
+
+    //set this on first run if you don't want a generated name
+    appName = 'bodycreator'
+}
+
+jar {
+    dependsOn configurations.runtime
+    from { configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) } }
+}
