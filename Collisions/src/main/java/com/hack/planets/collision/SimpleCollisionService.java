@@ -6,7 +6,6 @@ import java.util.*;
  * Created by julianghionoiu on 25/10/2014.
  */
 public class SimpleCollisionService implements CollisionService {
-
     Set<String> bodies;
     HashMap<String, Position> currentPositions;
     HashMap<String, Position> lastPositions;
@@ -47,7 +46,6 @@ public class SimpleCollisionService implements CollisionService {
                 }
             }
         }
-
 
         return collisions;
     }
