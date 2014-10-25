@@ -64,7 +64,8 @@ public class SimpleCollisionService implements CollisionService {
         Movement moveB = previousMovements.get(bodyB);
 
         if ( intersectionDetector.isCollision(moveA, moveB) ) {
-            collision = new Collision(bodyA, bodyB, new Position(0, 0));
+            Position intersectionPoint = intersectionDetector.getIntersection(moveA, moveB);
+            collision = new Collision(bodyA, bodyB, intersectionPoint);
         }
 
         return collision;
@@ -73,11 +74,21 @@ public class SimpleCollisionService implements CollisionService {
     //~~~~ Utils
 
     private boolean notPreviouslyDetected(List<Collision> collisions, String bodyA, String bodyB) {
-        collisions.forEach((Collision collision) -> {
-        });
+        boolean detected = false;
 
+        for (Collision collision : collisions) {
+            String oldBodyA = collision.getBody1();
+            String oldBodyB = collision.getBody2();
 
-        return !collisions.contains(new Collision(bodyB, bodyA, new Position(0, 0)));
+            if (( oldBodyA == bodyA ) && ( oldBodyB == bodyB )) {
+                detected = true;
+            }
+            if (( oldBodyA == bodyB ) && ( oldBodyB == bodyA )) {
+                detected = true;
+            }
+        }
+
+        return !detected;
     }
 
     private boolean notSame(String bodyA, String bodyB) {

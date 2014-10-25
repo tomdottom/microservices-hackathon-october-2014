@@ -2,10 +2,12 @@ package com.hack.planets.collision;
 
 import com.hack.planets.rabitmq.model.Location;
 
+import java.util.Objects;
+
 /**
  * Created by julianghionoiu on 25/10/2014.
  */
-public class Position {
+public final class Position {
     private final float x;
     private final float y;
     
@@ -25,5 +27,31 @@ public class Position {
 
     public float getY() {
         return y;
+    }
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        final Position other = (Position) obj;
+        return Objects.equals(this.x, other.x) && Objects.equals(this.y, other.y);
+    }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
